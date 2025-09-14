@@ -15,7 +15,7 @@ on:
       target:
         description: '要编译的目标设备'
         required: true
-        default: 'cmcc_rax3000m-emmc'
+        default: 'mediatek_filogic'
 
 env:
   REPO_TOKEN: ${{ secrets.TOKEN_KIDDIN9 }}
