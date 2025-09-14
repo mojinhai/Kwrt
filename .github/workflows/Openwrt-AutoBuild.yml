@@ -10,6 +10,7 @@ name: Build OpenWrt
 
 on: 
   repository_dispatch:
+  workflow_dispatch:
 
 env:
   REPO_TOKEN: ${{ secrets.TOKEN_KIDDIN9 }}
@@ -21,6 +22,10 @@ env:
   SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
   DOCKER_ID: ${{ secrets.DOCKER_ID }}
   DOCKER_PASSWD: ${{ secrets.DOCKER_PASSWD }}
+  OPENWRT_TARGET: "mediatek"
+  OPENWRT_SUBTARGET: "filogic"
+  OPENWRT_PROFILE: "cmcc_rax3000m-emmc"
+  OPENWRT_IP: "192.168.23.1"
   TZ: Asia/Shanghai
 
 jobs:
