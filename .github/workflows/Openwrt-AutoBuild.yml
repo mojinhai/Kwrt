@@ -11,6 +11,11 @@ name: Build OpenWrt
 on: 
   repository_dispatch:
   workflow_dispatch:
+    inputs:
+      target:
+        description: '要编译的目标设备'
+        required: true
+        default: 'cmcc_rax3000m-emmc'
 
 env:
   REPO_TOKEN: ${{ secrets.TOKEN_KIDDIN9 }}
@@ -36,7 +41,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        target: ["${{ github.event.client_payload.target }}"]
+        target: ["${{ github.event.inputs.target || github.event.client_payload.target }}"]
         
     steps:
     - name: Checkout
